@@ -5,16 +5,6 @@ window.THERAN.mountSite=()=>{
   'use strict';
   const controller=new AbortController();
   const signal=controller.signal;
-  const preferredLanguage=String((navigator.languages&&navigator.languages[0])||navigator.language||'pt-BR');
-  const wantsPortuguese=/^pt(?:-|$)/i.test(preferredLanguage);
-  const currentPortuguese=document.documentElement.lang.toLowerCase().startsWith('pt');
-  if(wantsPortuguese!==currentPortuguese){
-    const alternate=document.head.querySelector(`link[rel="alternate"][hreflang="${wantsPortuguese?'pt-BR':'en'}"]`);
-    if(alternate){
-      const target=new URL(alternate.href,location.href);
-      if(target.href!==location.href){location.replace(target.href);return()=>controller.abort()}
-    }
-  }
   document.querySelectorAll('.nav-lang,[data-lang-switch]').forEach(link=>link.remove());
   const header=document.querySelector('.site-header');
   const toggle=document.querySelector('.menu-toggle');
