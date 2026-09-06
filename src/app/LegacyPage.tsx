@@ -16,6 +16,16 @@ const managedHeadSelector = '[data-theran-react-head]';
 function parsePage(source: string): Snapshot {
   const documentSnapshot = new DOMParser().parseFromString(source, 'text/html');
   documentSnapshot.body.querySelectorAll('script').forEach((script) => script.remove());
+  const lang = documentSnapshot.documentElement.lang || 'pt-BR';
+  const footerAuthor = documentSnapshot.body.querySelector('.footer-bottom > span:first-child');
+  if (footerAuthor) {
+    const contact = documentSnapshot.createElement('a');
+    contact.className = 'footer-contact';
+    contact.href = 'mailto:bynoahkeller@gmail.com';
+    contact.textContent = /^pt(?:-|$)/i.test(lang) ? 'Contato' : 'Contact';
+    contact.setAttribute('aria-label', /^pt(?:-|$)/i.test(lang) ? 'Entrar em contato por e-mail' : 'Contact by email');
+    footerAuthor.append(' · ', contact);
+  }
   const styles = [...documentSnapshot.head.querySelectorAll('style')].map((style) => style.textContent ?? '').join('\n');
   const headNodes = [...documentSnapshot.head.querySelectorAll(
     'meta[name="description"],meta[name="author"],meta[name="robots"],meta[name="theme-color"],meta[property^="og:"],link[rel="alternate"],script[type="application/ld+json"]'
@@ -24,7 +34,7 @@ function parsePage(source: string): Snapshot {
     bodyAttributes: [...documentSnapshot.body.attributes].map((attribute) => [attribute.name, attribute.value]),
     bodyHtml: documentSnapshot.body.innerHTML,
     headNodes,
-    lang: documentSnapshot.documentElement.lang || 'pt-BR',
+    lang,
     page: documentSnapshot.body.dataset.page ?? '',
     stylesheets: [...documentSnapshot.head.querySelectorAll<HTMLLinkElement>('link[rel="stylesheet"]')].map((link) => link.getAttribute('href') ?? '').filter(Boolean),
     styles,
