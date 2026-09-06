@@ -5,6 +5,7 @@ type Snapshot = {
   bodyHtml: string;
   headNodes: string[];
   lang: string;
+  page: string;
   stylesheets: string[];
   styles: string;
   title: string;
@@ -34,6 +35,7 @@ function parsePage(source: string): Snapshot {
     bodyHtml: documentSnapshot.body.innerHTML,
     headNodes,
     lang,
+    page: documentSnapshot.body.dataset.page ?? '',
     stylesheets: [...documentSnapshot.head.querySelectorAll<HTMLLinkElement>('link[rel="stylesheet"]')].map((link) => link.getAttribute('href') ?? '').filter(Boolean),
     styles,
     title: documentSnapshot.title || 'THERAN'
@@ -85,6 +87,7 @@ export function LegacyPage({ source }: { source: string }) {
     cleanupRuntime();
     document.title = snapshot.title;
     document.documentElement.lang = snapshot.lang;
+    document.documentElement.classList.toggle('theran-phone-page', snapshot.page === 'arquivos');
     [...document.body.attributes].forEach((attribute) => document.body.removeAttribute(attribute.name));
     for (const [name, value] of snapshot.bodyAttributes) document.body.setAttribute(name, value);
 
