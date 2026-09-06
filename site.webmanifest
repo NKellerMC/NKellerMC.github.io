@@ -1,0 +1,16 @@
+{
+  "name": "THERAN — Site oficial",
+  "short_name": "THERAN",
+  "description": "Site oficial de THERAN, de Noah Keller.",
+  "start_url": "./",
+  "display": "browser",
+  "background_color": "#091012",
+  "theme_color": "#091012",
+  "icons": [
+    {
+      "src": "assets/icons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

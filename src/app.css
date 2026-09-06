@@ -1,0 +1,6 @@
+html,body,#root{min-height:100%}
+body{margin:0;background:#091012}
+#root,.theran-route-root{display:contents}
+.route-loading{position:fixed;inset:0;background:#091012}
+.footer-contact{color:inherit;text-decoration:none;transition:color .18s ease}
+.footer-contact:hover,.footer-contact:focus-visible{color:#eef3f1;text-decoration:underline;text-underline-offset:3px}
