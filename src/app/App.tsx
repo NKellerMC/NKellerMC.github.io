@@ -1,6 +1,8 @@
 import { startTransition, Suspense, useEffect, useMemo, useState } from 'react';
 import { preloadRoute, routeComponents, routeForBrowserLanguage, routeFromAnchor, routeFromLocation, type RouteName } from './routes';
 
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
 function initialRoute(): RouteName {
   const route = routeFromLocation();
   const localized = routeForBrowserLanguage(route);
