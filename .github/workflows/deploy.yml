@@ -1,5 +1,6 @@
 name: Publicar THERAN + Threadly no GitHub Pages
 
+# O Pages principal também publica a versão atual do Threadly em /Threadly/.
 on:
   push:
     branches: [main]
