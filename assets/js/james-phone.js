@@ -116,7 +116,7 @@ window.THERAN.mountJamesPhone=()=>{
       {name:'Celi N.',time:'15 min ago',text:'The public reports keep saying “under analysis” without showing the records being compared.',agree:47,disagree:8}
     ]},
     hypotheses:{section:'Science',eyebrow:'Explainer · 07:58',title:'What is known — and still unknown — about the ocean stoppages',deck:'Electronic failure, solar activity, and magnetic interference remain hypotheses; none explains every case.',meta:'5 min read · Science desk',body:[
-      'Specialists consulted by Threadly say the cases share timing and behavior, but the available records do not yet demonstrate a common mechanism.',
+      'Specialists consulted by Riva say the cases share timing and behavior, but the available records do not yet demonstrate a common mechanism.',
       'Electronic failures, unusual solar activity, and magnetic interference have all been discussed publicly. Each could explain part of the observations; none accounts for the entire set.',
       'Researchers warn that the current sample is too small and uneven for a definitive conclusion.'
     ],reactions:[['Informative',143],['Too cautious',64]],comments:[
@@ -193,7 +193,7 @@ window.THERAN.mountJamesPhone=()=>{
       {name:'Celi N.',time:'há 15 min',text:'Os relatórios públicos repetem “em análise” sem mostrar os registros que estão comparando.',agree:47,disagree:8}
     ]},
     hypotheses:{section:'Ciência',eyebrow:'Entenda · 07:58',title:'O que se sabe — e o que ainda não se sabe — sobre as paralisações no oceano',deck:'Falha eletrônica, atividade solar e interferência magnética seguem como hipóteses; nenhuma explica todos os casos.',meta:'5 min de leitura · Editoria de ciência',body:[
-      'Especialistas ouvidos pelo Threadly afirmam que os casos compartilham tempo e comportamento, mas os registros disponíveis ainda não demonstram um mecanismo comum.',
+      'Especialistas ouvidos pela Riva afirmam que os casos compartilham tempo e comportamento, mas os registros disponíveis ainda não demonstram um mecanismo comum.',
       'Falhas eletrônicas, atividade solar incomum e interferência magnética já foram discutidas publicamente. Cada hipótese explica parte das observações; nenhuma responde ao conjunto inteiro.',
       'Pesquisadores alertam que a amostra atual é pequena e desigual para qualquer conclusão definitiva.'
     ],reactions:[['Informativa',143],['Cautelosa demais',64]],comments:[
@@ -361,7 +361,7 @@ window.THERAN.mountJamesPhone=()=>{
       'Education reports should distinguish a local failure from a system-wide problem.'
     ],
     follow:[
-      'Threadly should keep the full timeline attached to the story.',
+      'Riva should keep the full timeline attached to the story.',
       'I want the original record, not another panel of guesses.',
       'The next update needs to state exactly what changed.',
       'The discussion should separate observation, hypothesis, and conclusion.',
@@ -412,7 +412,7 @@ window.THERAN.mountJamesPhone=()=>{
       'Notícias de educação precisam separar falha local de problema geral.'
     ],
     follow:[
-      'O Threadly deveria manter a linha do tempo completa anexada à matéria.',
+      'A Riva deveria manter a linha do tempo completa anexada à matéria.',
       'Quero o registro original, não outro painel de palpites.',
       'A próxima atualização precisa dizer exatamente o que mudou.',
       'A discussão deveria separar observação, hipótese e conclusão.',
@@ -468,10 +468,12 @@ window.THERAN.mountJamesPhone=()=>{
   function openView(name){
     if(!views.some(view=>view.dataset.phoneView===name))return;
     if(name!=='news')closeArticle();
+    if(name!=='threadly')$$('.threadly-video-wrap video').forEach(video=>video.pause());
     activeView=name;
     root.dataset.activeApp=name;
     views.forEach(view=>view.classList.toggle('is-active',view.dataset.phoneView===name));
     if(name==='orin')requestAnimationFrame(()=>window.dispatchEvent(new Event('resize')));
+    if(name==='threadly')requestAnimationFrame(()=>$('.threadly-video-wrap video:not([hidden])')?.play().catch(()=>{}));
   }
 
   function showToast(message){
@@ -623,6 +625,40 @@ window.THERAN.mountJamesPhone=()=>{
   renderExtraNews();
   $$('[data-phone-open]').forEach(button=>button.addEventListener('click',()=>openView(button.dataset.phoneOpen),{signal}));
   $$('[data-phone-home]').forEach(button=>button.addEventListener('click',()=>{closeThread();openView('home')},{signal}));
+  $$('[data-threadly-filter]').forEach(button=>button.addEventListener('click',()=>{
+    const filter=button.dataset.threadlyFilter;
+    $$('[data-threadly-filter]').forEach(item=>{
+      const active=item===button;
+      item.classList.toggle('active',active);
+      item.setAttribute('aria-selected',String(active));
+    });
+    $$('[data-threadly-kind]').forEach(post=>{post.hidden=filter==='clips'&&post.dataset.threadlyKind!=='clips'});
+    $$('.threadly-video-wrap video').forEach(video=>video.pause());
+    requestAnimationFrame(()=>$('.threadly-post:not([hidden]) .threadly-video-wrap video')?.play().catch(()=>{}));
+  },{signal}));
+  $$('[data-threadly-like]').forEach(button=>button.addEventListener('click',()=>{
+    const active=!button.classList.contains('is-active');
+    const count=button.querySelector('span');
+    button.classList.toggle('is-active',active);
+    button.setAttribute('aria-pressed',String(active));
+    if(count)count.textContent=String(Number(count.textContent||0)+(active?1:-1));
+  },{signal}));
+  $$('[data-threadly-save]').forEach(button=>button.addEventListener('click',()=>{
+    const active=!button.classList.contains('is-active');
+    button.classList.toggle('is-active',active);
+    button.setAttribute('aria-pressed',String(active));
+    showToast(active?(EN?'Saved on Threadly.':'Salvo no Threadly.'):(EN?'Removed from saved posts.':'Removido dos salvos.'));
+  },{signal}));
+  $$('.threadly-video-wrap video').forEach(video=>video.addEventListener('click',()=>{if(video.paused)video.play().catch(()=>{});else video.pause()},{signal}));
+  $$('[data-threadly-sound]').forEach(button=>button.addEventListener('click',()=>{
+    const video=button.closest('.threadly-video-wrap')?.querySelector('video');
+    if(!video)return;
+    video.muted=!video.muted;
+    button.classList.toggle('sound-on',!video.muted);
+    button.setAttribute('aria-label',video.muted?(EN?'Turn sound on':'Ativar som'):(EN?'Mute':'Desativar som'));
+    if(video.paused)video.play().catch(()=>{});
+  },{signal}));
+  $$('.threadly-composer,.threadly-top-action').forEach(button=>button.addEventListener('click',()=>showToast(copy.local),{signal}));
   $('#ariqBack')?.addEventListener('click',closeThread,{signal});
   $('#ariqSearchInput')?.addEventListener('input',event=>{query=event.target.value.trim().toLowerCase();renderThreadList()},{signal});
   $('#ariqClearSearch')?.addEventListener('click',()=>{const input=$('#ariqSearchInput');if(input){input.value='';input.focus()}query='';renderThreadList()},{signal});

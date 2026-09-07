@@ -13,7 +13,7 @@
 
 ## Sobre o projeto
 
-Este repositório reúne a experiência digital de **THERAN**: uma SPA narrativa com páginas sobre a história, o mundo, os personagens, o livro e seus arquivos. A seção interativa permite explorar o celular de James e seus aplicativos — Ariq, Orin, Notas e Threadly — sem interromper a navegação principal.
+Este repositório reúne a experiência digital de **THERAN**: uma SPA narrativa com páginas sobre a história, o mundo, os personagens, o livro e seus arquivos. A seção interativa permite explorar o celular de James e seus aplicativos — Ariq, Orin, Notas, Threadly e Riva — sem interromper a navegação principal.
 
 O conteúdo em português e inglês é escolhido automaticamente de acordo com o idioma do navegador.
 
@@ -22,7 +22,8 @@ O conteúdo em português e inglês é escolhido automaticamente de acordo com o
 - Navegação SPA, sem recarregamentos entre páginas.
 - Interface responsiva para celular, tablet e computador.
 - Celular interativo de James com aplicativos e conversas narrativas.
-- Threadly apresentado como um jornal cotidiano de Theran.
+- Threadly como rede social ficcional, com publicações e clipes integrados.
+- Riva como publicação jornalística cotidiana de Theran.
 - Leitor de amostra integrado em português e inglês.
 - Rotas diretas compatíveis com GitHub Pages.
 
@@ -84,7 +85,7 @@ O workflow está em [`.github/workflows/deploy.yml`](.github/workflows/deploy.ym
 
 ## Conteúdo e direitos
 
-O site, o universo, a narrativa, os personagens, os EPUBs, o celular de James e os aplicativos Ariq, Orin, Notas e Threadly são conteúdos proprietários de Noah Keller. Consulte a [licença do projeto](LICENSE.md) para conhecer os termos completos.
+O site, o universo, a narrativa, os personagens, os EPUBs, o celular de James e os aplicativos Ariq, Orin, Notas, Threadly e Riva são conteúdos proprietários de Noah Keller. Consulte a [licença do projeto](LICENSE.md) para conhecer os termos completos.
 
 Dependências de terceiros permanecem sob suas próprias licenças; a licença do leitor Bibi está disponível em [`licenses/Bibi-MIT.txt`](licenses/Bibi-MIT.txt).
 

@@ -10,7 +10,7 @@ Salvo quando expressamente indicado de outra forma, todo o conteúdo original de
 - o universo ficcional THERAN, sua história, personagens, diálogos, terminologia, ambientação, conceitos e materiais narrativos;
 - os livros, manuscritos, amostras e arquivos EPUB disponibilizados neste projeto;
 - a representação do celular de James, sua interface, conteúdo e interações;
-- os aplicativos ficcionais **Ariq, Orin, Notas e Threadly**, incluindo seus nomes, interfaces, ícones originais, textos, mensagens, notícias e demais elementos criativos;
+- os aplicativos ficcionais **Ariq, Orin, Notas, Threadly e Riva**, incluindo seus nomes, interfaces, ícones originais, textos, mensagens, notícias e demais elementos criativos;
 - artes, ilustrações, imagens, animações, sons, elementos gráficos e código original criado especificamente para o projeto.
 
 ## 2. Restrições
@@ -39,7 +39,7 @@ Para solicitar autorização de uso, entre em contato com o titular do projeto p
 
 **Copyright © 2026 Noah Keller. All rights reserved.**
 
-Unless expressly stated otherwise, all original content in this project is authored and owned by **Noah Keller**, including the THERAN website and visual identity; the THERAN fictional universe, story, characters, dialogue, terminology, setting, concepts and narrative materials; books, manuscripts, samples and EPUB files; the depiction, interface and contents of James's phone; and the fictional applications **Ariq, Orin, Notes and Threadly**, together with their original names, interfaces, icons, messages, news articles and other creative elements.
+Unless expressly stated otherwise, all original content in this project is authored and owned by **Noah Keller**, including the THERAN website and visual identity; the THERAN fictional universe, story, characters, dialogue, terminology, setting, concepts and narrative materials; books, manuscripts, samples and EPUB files; the depiction, interface and contents of James's phone; and the fictional applications **Ariq, Orin, Notes, Threadly and Riva**, together with their original names, interfaces, icons, messages, news articles and other creative elements.
 
 No protected material may be copied, reproduced, modified, translated, adapted, distributed, republished, displayed, transmitted, sold, licensed, commercially exploited or incorporated into another project without prior express written permission from Noah Keller.
 
