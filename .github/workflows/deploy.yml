@@ -1,7 +1,7 @@
 name: Publicar THERAN + Threadly no GitHub Pages
 
 # O Pages principal também publica a versão atual do Threadly em /Threadly/.
-# Atualização do Threadly: 3.3 — usernames únicos, Google popup e configurações privadas.
+# Atualização do Threadly: 3.3 — usernames, Google popup, conta privada e exclusão segura.
 on:
   push:
     branches: [main]
