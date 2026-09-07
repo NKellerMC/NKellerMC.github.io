@@ -1,9 +1,11 @@
-name: Publicar THERAN no GitHub Pages
+name: Publicar THERAN + Threadly no GitHub Pages
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *'
 
 permissions:
   contents: read
@@ -21,23 +23,55 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Baixar código
+      - name: Baixar site principal
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          path: site
+
+      - name: Baixar Threadly
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: NKellerMC/Threadly
+          ref: main
+          path: threadly
+
       - name: Preparar Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
           node-version: 24
           cache: npm
-      - name: Instalar dependências
+          cache-dependency-path: site/package-lock.json
+
+      - name: Instalar dependências do site principal
+        working-directory: site
         run: npm ci
-      - name: Construir site
+
+      - name: Construir site principal
+        working-directory: site
         run: npm run build
+
+      - name: Instalar dependências do Threadly
+        working-directory: threadly
+        run: npm install --no-audit --no-fund
+
+      - name: Validar e construir Threadly
+        working-directory: threadly
+        run: npm run check
+
+      - name: Publicar Threadly em /Threadly/
+        run: |
+          rm -rf site/dist/Threadly
+          mkdir -p site/dist/Threadly
+          cp -R threadly/dist/. site/dist/Threadly/
+
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6
+
       - name: Enviar arquivos publicados
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
         with:
-          path: ./dist
+          path: ./site/dist
+
       - name: Publicar
         id: deployment
         uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5
