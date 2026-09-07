@@ -713,44 +713,9 @@ window.THERAN.mountJamesPhone=()=>{
     showToast(copy.local);
   }
 
-  renderThreadlyFeed();
   renderExtraNews();
   $$('[data-phone-open]').forEach(button=>button.addEventListener('click',()=>openView(button.dataset.phoneOpen),{signal}));
   $$('[data-phone-home]').forEach(button=>button.addEventListener('click',()=>{closeThread();openView('home')},{signal}));
-  $$('[data-threadly-filter]').forEach(button=>button.addEventListener('click',()=>{
-    const filter=button.dataset.threadlyFilter;
-    $$('[data-threadly-filter]').forEach(item=>{
-      const active=item===button;
-      item.classList.toggle('active',active);
-      item.setAttribute('aria-selected',String(active));
-    });
-    $$('[data-threadly-kind]').forEach(post=>{post.hidden=filter==='clips'&&post.dataset.threadlyKind!=='clips'});
-    $$('.threadly-video-wrap video').forEach(video=>video.pause());
-    requestAnimationFrame(()=>$('.threadly-post:not([hidden]) .threadly-video-wrap video')?.play().catch(()=>{}));
-  },{signal}));
-  $$('[data-threadly-like]').forEach(button=>button.addEventListener('click',()=>{
-    const active=!button.classList.contains('is-active');
-    const count=button.querySelector('span');
-    button.classList.toggle('is-active',active);
-    button.setAttribute('aria-pressed',String(active));
-    if(count)count.textContent=String(Number(count.textContent||0)+(active?1:-1));
-  },{signal}));
-  $$('[data-threadly-save]').forEach(button=>button.addEventListener('click',()=>{
-    const active=!button.classList.contains('is-active');
-    button.classList.toggle('is-active',active);
-    button.setAttribute('aria-pressed',String(active));
-    showToast(active?(EN?'Saved on Threadly.':'Salvo no Threadly.'):(EN?'Removed from saved posts.':'Removido dos salvos.'));
-  },{signal}));
-  $$('.threadly-video-wrap video').forEach(video=>video.addEventListener('click',()=>{if(video.paused)video.play().catch(()=>{});else video.pause()},{signal}));
-  $$('[data-threadly-sound]').forEach(button=>button.addEventListener('click',()=>{
-    const video=button.closest('.threadly-video-wrap')?.querySelector('video');
-    if(!video)return;
-    video.muted=!video.muted;
-    button.classList.toggle('sound-on',!video.muted);
-    button.setAttribute('aria-label',video.muted?(EN?'Turn sound on':'Ativar som'):(EN?'Mute':'Desativar som'));
-    if(video.paused)video.play().catch(()=>{});
-  },{signal}));
-  $$('.threadly-composer,.threadly-top-action').forEach(button=>button.addEventListener('click',()=>showToast(copy.local),{signal}));
   $('#ariqBack')?.addEventListener('click',closeThread,{signal});
   $('#ariqSearchInput')?.addEventListener('input',event=>{query=event.target.value.trim().toLowerCase();renderThreadList()},{signal});
   $('#ariqClearSearch')?.addEventListener('click',()=>{const input=$('#ariqSearchInput');if(input){input.value='';input.focus()}query='';renderThreadList()},{signal});

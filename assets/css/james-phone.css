@@ -533,3 +533,41 @@ body.archive-body{
 /* RIVA — a interface agora nasce da mesma paleta do símbolo. */
 .phone-view[data-phone-view="news"]{color:#24151c;background:#eee4e8}.news-shell{background:#f7f0f2}.news-bar,.news-sections{background:#fff9fa}.news-bar{border-bottom-color:#2b1821}.news-mark{background:#140b10;box-shadow:0 0 0 1px rgba(255,93,136,.2),0 8px 20px rgba(65,18,36,.16)}.news-mark img{object-fit:contain}.news-name small,.news-edition{color:#806d75}.news-bar-rule{border-left-color:#dccbd1}.news-edition b,.news-section.active{color:#2b1821}.news-sections{border-bottom-color:#ddcdd3}.news-section{color:#88747c}.news-section.active::after,.news-reader-rule i{background:#d94f78}.news-live{border-top-color:#d94f78;border-bottom-color:#decfd4;color:#796970;background:#f1e7ea}.news-live>span{background:#d94f78;box-shadow:0 0 0 4px rgba(217,79,120,.11)}.news-live b,.news-kicker,.news-reader-eyebrow{color:#ad3157}.news-lead{border-top-color:#2b1821;border-bottom-color:#bcaeb3}.news-lead p,.news-compact p,.news-row p{color:#67575e}.news-sea-graphic{background:#2b1821}.news-number,.news-symbol{color:#713d52}.news-symbol{border-color:#b6a3aa}.news-reader{background:#f9f3f5}.news-reader>header{border-bottom-color:#cbbbc1;background:rgba(255,249,250,.98)}.news-reader>header button.is-saved{color:#d94f78}.news-reader-scroll{background:#f9f3f5}.news-reader-body p{color:#3a2930}.news-reader-body p:first-child::first-letter{color:#ad3157}.news-row-feature{background:linear-gradient(90deg,rgba(217,79,120,.08),transparent 76%)}.news-row-feature .news-symbol{border-color:#d59bae;color:#a7375a}.news-reaction.is-active,.news-comment-actions button.is-active{border-color:#c04c70;background:#fff0f5;color:#a72f56}.news-comment-avatar{border-color:#b7a4ab;background:#eee2e6;color:#713d52}
 .news-sea-graphic [stop-color="#183e46"]{stop-color:#4d2638}.news-sea-graphic [stop-color="#0a252d"]{stop-color:#211019}.news-sea-graphic [fill="#24515a"]{fill:#74354f}.news-sea-graphic [stroke="#75aaa9"]{stroke:#d799ad}.news-sea-graphic [fill="#e96e57"],.news-sea-graphic [stroke="#e96e57"]{fill:#f06d94;stroke:#f06d94}.news-sea-graphic [fill="#d9e6e2"]{fill:#fff2f6}.news-sea-graphic [fill="#aac1bc"]{fill:#dcbcc7}.news-sea-graphic [fill="#cce0dc"]{fill:#f2dce4}
+
+/* THREADLY — interface React/TSX, alinhada ao aplicativo de referência. */
+.phone-view[data-phone-view="threadly"]{--th-bg:#090607;--th-panel:#120b0f;--th-line:rgba(255,220,232,.11);--th-accent:#d64a6c;--th-hot:#ff718f;background:var(--th-bg)}
+.phone-view[data-phone-view="threadly"] .threadly-shell{display:block;height:calc(100% - 14px);background:var(--th-bg)}
+.threadly-react-root,.threadly-react{width:100%;height:100%;min-height:0}
+.threadly-react{display:grid;grid-template-rows:58px 91px 44px minmax(0,1fr);overflow:hidden;color:#f8eef2;background:radial-gradient(330px 190px at 108% -3%,rgba(209,78,105,.13),transparent 68%),var(--th-bg);font-family:Inter,Manrope,ui-sans-serif,system-ui,-apple-system,sans-serif}
+.threadly-react .threadly-bar{min-height:58px;height:58px;padding:0 16px;gap:8px;border-bottom:1px solid var(--th-line);background:rgba(9,6,7,.88);-webkit-backdrop-filter:blur(16px) saturate(135%);backdrop-filter:blur(16px) saturate(135%)}
+.threadly-react .threadly-brand{gap:11px}
+.threadly-react .threadly-brand img{width:34px;height:34px;filter:drop-shadow(0 6px 13px rgba(214,74,108,.18))}
+.threadly-react .threadly-brand strong{font-size:20px;font-weight:760;line-height:1;letter-spacing:-.045em}
+.threadly-react .threadly-top-action{width:34px;height:34px;border:0;border-radius:11px;background:transparent;color:#d9c5cc}
+.threadly-react .threadly-top-action:hover{background:rgba(255,255,255,.055);color:#fff}
+.threadly-react .threadly-top-action svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.threadly-stories{display:flex;gap:12px;align-items:center;overflow-x:auto;padding:10px 16px 8px;border-bottom:1px solid rgba(255,220,232,.065);scrollbar-width:none;overscroll-behavior-inline:contain}
+.threadly-stories::-webkit-scrollbar{display:none}
+.threadly-story{width:55px;flex:0 0 55px;padding:0;border:0;background:transparent;color:#bca4ad;text-align:center;cursor:pointer}
+.threadly-story-ring{width:55px;height:55px;display:grid;place-items:center;border-radius:19px;background:conic-gradient(from 210deg,#8d263f,#ff718f,#d14e69,#8d263f);box-shadow:0 7px 17px rgba(82,12,34,.2);transition:transform .22s cubic-bezier(.2,.8,.2,1)}
+.threadly-story:hover .threadly-story-ring{transform:translateY(-2px) scale(1.025)}
+.threadly-story-ring>span{width:49px;height:49px;display:grid;place-items:center;border:2px solid var(--th-bg);border-radius:16px;background:hsl(var(--avatar-hue) 23% 21%);color:hsl(var(--avatar-hue) 62% 87%);font-size:13px;font-weight:850}
+.threadly-story small{display:block;margin-top:5px;overflow:hidden;text-overflow:ellipsis;color:#a78e98;font-size:9px;white-space:nowrap}
+.threadly-react .threadly-tabs{height:44px;background:rgba(9,6,7,.96)}
+.threadly-react .threadly-tabs button{font-size:12px}.threadly-react .threadly-tabs button.active::after{left:34%;right:34%;background:var(--th-hot)}
+.threadly-react .threadly-feed{padding:14px 16px 78px;background:linear-gradient(180deg,rgba(255,255,255,.008),transparent 120px);scroll-padding-top:14px}
+.threadly-react .threadly-composer{min-height:58px;margin:0 0 12px;padding:9px 13px;grid-template-columns:36px minmax(0,1fr) 25px;border-color:var(--th-line);border-radius:17px;background:#120c0f}
+.threadly-compose-mark{width:36px;height:36px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(145deg,#8f2944,#c64a68);color:#fff;font-size:21px;font-weight:360;box-shadow:0 5px 13px rgba(137,31,61,.2)}
+.threadly-react .threadly-composer>span:nth-child(2){padding-left:1px;color:#a58d96;font-size:12px}
+.threadly-react .threadly-composer>svg{width:18px;height:18px;fill:none;stroke:#d85b7a;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.threadly-react .threadly-feed-count{margin:0 1px 10px;color:#806b73}.threadly-react .threadly-feed-count b{color:#b99fa8}
+.threadly-react .threadly-post{margin-bottom:12px;padding:15px 15px 11px;border-color:rgba(255,220,232,.09);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.022),transparent 47%),#120c0f;box-shadow:0 10px 28px rgba(0,0,0,.12);content-visibility:auto;contain-intrinsic-size:150px;animation:threadly-card-in .42s both}
+.threadly-react .threadly-post:nth-of-type(3n+2){animation-delay:.035s}.threadly-react .threadly-post:nth-of-type(3n){animation-delay:.07s}
+.threadly-react .threadly-avatar{border-radius:14px;background:hsl(var(--avatar-hue) 23% 21%);color:hsl(var(--avatar-hue) 62% 87%)}
+.threadly-react .threadly-person strong{font-size:12px;font-weight:760}.threadly-react .threadly-person small{color:#826d75;font-size:9px}
+.threadly-react .threadly-post>header>button svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7}
+.threadly-react .threadly-post>p{margin:12px 1px 13px;color:#ebdde2;font-size:12.5px;line-height:1.55;letter-spacing:.002em}
+.threadly-react .threadly-post>footer{padding-top:4px}.threadly-react .threadly-post>footer button{min-width:45px}.threadly-react .threadly-post>footer svg{width:18px;height:18px}
+.threadly-react .threadly-video-wrap{margin:0 0 8px;max-height:390px;border:1px solid rgba(255,255,255,.06);border-radius:16px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.3)}
+@keyframes threadly-card-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.threadly-react .threadly-post{animation:none}.threadly-story-ring{transition:none}}

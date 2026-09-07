@@ -5,6 +5,7 @@ interface TheranRuntime {
   mountSite?: () => (() => void) | void;
   mountOcean?: () => (() => void) | void;
   mountArchive?: () => (() => void) | void;
+  mountThreadly?: () => (() => void) | void;
   mountJamesPhone?: () => (() => void) | void;
   mountStores?: () => (() => void) | void;
   mountSampleReader?: () => (() => void) | void;

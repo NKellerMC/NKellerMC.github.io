@@ -69,6 +69,7 @@ async function mountRuntime(): Promise<void> {
       const { loadArchiveRuntime } = await import('../runtime/archive');
       await loadArchiveRuntime();
     }, () => window.THERAN?.mountArchive?.());
+    await loadRuntimeModule('threadly', () => import('../runtime/threadly'), () => window.THERAN?.mountThreadly?.());
     await loadRuntimeModule('phone', () => import('../../assets/js/james-phone.js'), () => window.THERAN?.mountJamesPhone?.());
   }
   if (page === 'livro') {
