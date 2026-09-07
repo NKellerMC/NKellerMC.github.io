@@ -1,6 +1,7 @@
 name: Publicar THERAN + Threadly no GitHub Pages
 
 # O Pages principal também publica a versão atual do Threadly em /Threadly/.
+# Atualização do Threadly: sessão Firebase/Supabase e logo T oficial.
 on:
   push:
     branches: [main]
