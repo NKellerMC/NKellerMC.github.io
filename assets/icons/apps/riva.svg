@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Riva">
+  <defs>
+    <linearGradient id="rivaRose" x1="10" y1="54" x2="54" y2="10" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff9ab4"/>
+      <stop offset="1" stop-color="#ff5d88"/>
+    </linearGradient>
+    <filter id="rivaGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.1" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="#140b10"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="7" filter="url(#rivaGlow)">
+    <rect x="12" y="22" width="40" height="20" rx="10" transform="rotate(45 32 32)" stroke="#ffd2de"/>
+    <path d="M18 46.2 46.2 18A10 10 0 0 1 60.3 32.1L32.1 60.3A10 10 0 0 1 18 46.2Z" transform="translate(-7 -7)" stroke="#140b10" stroke-width="11"/>
+    <rect x="12" y="22" width="40" height="20" rx="10" transform="rotate(-45 32 32)" stroke="url(#rivaRose)"/>
+  </g>
+</svg>

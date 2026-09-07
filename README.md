@@ -22,8 +22,8 @@ O conteúdo em português e inglês é escolhido automaticamente de acordo com o
 - Navegação SPA, sem recarregamentos entre páginas.
 - Interface responsiva para celular, tablet e computador.
 - Celular interativo de James com aplicativos e conversas narrativas.
-- Threadly como rede social ficcional, com publicações e clipes integrados.
-- Riva como publicação jornalística cotidiana de Theran.
+- Threadly como rede social ficcional, com 100 publicações ancoradas na amostra do EPUB e dois clipes originais de motion design.
+- Riva como publicação jornalística cotidiana de Theran, com símbolo vetorial e paleta editorial próprios.
 - Leitor de amostra integrado em português e inglês.
 - Rotas diretas compatíveis com GitHub Pages.
 
