@@ -571,3 +571,73 @@ body.archive-body{
 .threadly-react .threadly-video-wrap{margin:0 0 8px;max-height:390px;border:1px solid rgba(255,255,255,.06);border-radius:16px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.3)}
 @keyframes threadly-card-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.threadly-react .threadly-post{animation:none}.threadly-story-ring{transition:none}}
+
+/* THREADLY 2 — composição limpa do app oficial: topo, página, feed e navegação. */
+.threadly-react{grid-template-rows:58px minmax(0,1fr) 58px;background:var(--th-bg)}
+.threadly-react .threadly-bar{padding:0 15px}
+.threadly-brand-mark{width:34px;height:34px;display:grid;place-items:center;overflow:visible}
+.threadly-react .threadly-brand img{width:34px;height:34px;object-fit:contain;filter:none}
+.threadly-scroll{min-height:0;overflow-y:auto;overflow-x:hidden;padding:0 15px 26px;scrollbar-width:none;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.threadly-scroll::-webkit-scrollbar{display:none}
+.threadly-react .threadly-stories{gap:11px;margin:0 -15px;padding:13px 15px 11px;border-bottom:1px solid var(--th-line)}
+.threadly-react .threadly-story{width:50px;flex-basis:50px}
+.threadly-react .threadly-story-ring{width:48px;height:48px;border-radius:50%;box-shadow:none}
+.threadly-react .threadly-story-ring>span{width:44px;height:44px;border-radius:50%;font-size:12px}
+.threadly-react .threadly-story small{margin-top:5px;font-size:9px}
+.threadly-page-head{padding:22px 1px 17px}
+.threadly-page-head>span{display:block;margin-bottom:5px;color:var(--th-accent);font-size:9px;font-weight:850;letter-spacing:.16em}
+.threadly-page-head h1{margin:0;color:#fff8fa;font-size:25px;line-height:1;font-weight:790;letter-spacing:-.045em}
+.threadly-react .threadly-composer{min-height:54px;margin:0 0 12px;padding:8px 11px;grid-template-columns:36px minmax(0,1fr) 30px;border-radius:15px;background:rgba(18,12,15,.78)}
+.threadly-react .threadly-composer .threadly-me{border-radius:50%;background:linear-gradient(145deg,#4a2c36,#9d3451)}
+.threadly-react .threadly-composer>svg{justify-self:center;width:18px;height:18px}
+.threadly-react .threadly-feed{overflow:visible;padding:0;border-top:1px solid var(--th-line);background:transparent}
+.threadly-react .threadly-post{display:grid;grid-template-columns:38px minmax(0,1fr);gap:11px;margin:0;padding:17px 1px;border:0;border-bottom:1px solid var(--th-line);border-radius:0;background:transparent;box-shadow:none;animation:threadly-card-in .3s both;contain-intrinsic-size:132px}
+.threadly-post-main{min-width:0}
+.threadly-react .threadly-avatar{width:38px;height:38px;border-radius:50%}
+.threadly-react .threadly-post-main>header{display:flex;align-items:flex-start;gap:8px}
+.threadly-react .threadly-post-main>header>button{width:28px;height:28px;margin:-5px -4px 0 auto;border:0;background:transparent;color:#806f76}
+.threadly-react .threadly-person strong,.threadly-react .threadly-person small{display:block}
+.threadly-react .threadly-person strong{font-size:12px}.threadly-react .threadly-person small{margin-top:2px}
+.threadly-react .threadly-post-main>p{margin:8px 0 11px;color:#f2e8eb;font-size:13px;line-height:1.52}
+.threadly-react .threadly-post-main>footer{display:flex;align-items:center;gap:2px;margin:5px -7px -5px}
+.threadly-react .threadly-post-main>footer button{min-width:36px;height:32px;display:flex;align-items:center;justify-content:center;gap:5px;padding:0 7px;border:0;border-radius:999px;background:transparent;color:#97878d;font-size:9px}
+.threadly-react .threadly-post-main>footer button:hover{background:rgba(255,255,255,.045);color:#fff}
+.threadly-react .threadly-post-main>footer button.is-active{color:var(--th-hot)}
+.threadly-react .threadly-post-main>footer button.is-active svg{fill:currentColor}
+.threadly-react .threadly-post-main>footer .threadly-save{margin-left:auto}
+.threadly-react .threadly-post-main>footer svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.threadly-react .threadly-video-wrap{width:min(100%,260px);max-height:none;aspect-ratio:9/13;margin:5px 0 9px;border-radius:15px}
+.threadly-mobile-nav{height:58px;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--th-line);background:rgba(9,6,7,.96);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+.threadly-mobile-nav button{position:relative;display:grid;place-items:center;border:0;background:transparent;color:#88787e}
+.threadly-mobile-nav button.active{color:#fff}.threadly-mobile-nav button.active::after{content:"";position:absolute;bottom:5px;width:4px;height:4px;border-radius:50%;background:var(--th-hot)}
+.threadly-mobile-nav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.threadly-mobile-nav .threadly-create::before{content:"";position:absolute;z-index:-1;width:39px;height:31px;border-radius:11px;background:linear-gradient(135deg,#d7496b,#8f2942)}
+.threadly-mobile-nav .threadly-create{color:#fff;isolation:isolate}
+
+/* RIVA — restaura a paleta editorial quente; somente o símbolo foi recolorido. */
+.phone-view[data-phone-view="news"]{color:#171b1b;background:#eeeee9}
+.phone-view[data-phone-view="news"] .news-shell{background:#f3f2ed}
+.phone-view[data-phone-view="news"] .news-bar,.phone-view[data-phone-view="news"] .news-sections{background:#f7f6f1}
+.phone-view[data-phone-view="news"] .news-bar{border-bottom-color:#171b1b}
+.phone-view[data-phone-view="news"] .news-name small,.phone-view[data-phone-view="news"] .news-edition{color:#66706e}
+.phone-view[data-phone-view="news"] .news-bar-rule{border-left-color:#c7c8c2}
+.phone-view[data-phone-view="news"] .news-edition b,.phone-view[data-phone-view="news"] .news-section.active{color:#303635}
+.phone-view[data-phone-view="news"] .news-sections{border-bottom-color:#cfd0c9}
+.phone-view[data-phone-view="news"] .news-section{color:#737a77}
+.phone-view[data-phone-view="news"] .news-section.active::after,.phone-view[data-phone-view="news"] .news-reader-rule i{background:#d8503d}
+.phone-view[data-phone-view="news"] .news-live{border-top-color:#d8503d;border-bottom-color:#d8d8d1;color:#68706d;background:#eeeee8}
+.phone-view[data-phone-view="news"] .news-live>span{background:#d8503d;box-shadow:0 0 0 4px rgba(216,80,61,.1)}
+.phone-view[data-phone-view="news"] .news-live b,.phone-view[data-phone-view="news"] .news-kicker,.phone-view[data-phone-view="news"] .news-reader-eyebrow{color:#b94232}
+.phone-view[data-phone-view="news"] .news-lead{border-top-color:#171b1b;border-bottom-color:#aeb1ac}
+.phone-view[data-phone-view="news"] .news-lead p,.phone-view[data-phone-view="news"] .news-compact p,.phone-view[data-phone-view="news"] .news-row p{color:#535b58}
+.phone-view[data-phone-view="news"] .news-sea-graphic{background:#103039}
+.phone-view[data-phone-view="news"] .news-number,.phone-view[data-phone-view="news"] .news-symbol{color:#31555a}
+.phone-view[data-phone-view="news"] .news-symbol{border-color:#9ca5a1}
+.phone-view[data-phone-view="news"] .news-reader,.phone-view[data-phone-view="news"] .news-reader-scroll{background:#f5f4ef}
+.phone-view[data-phone-view="news"] .news-reader>header{border-bottom-color:#b4b7b0;background:rgba(248,247,242,.98)}
+.phone-view[data-phone-view="news"] .news-reader-body p{color:#303735}
+.phone-view[data-phone-view="news"] .news-reader-body p:first-child::first-letter{color:#b94232}
+.phone-view[data-phone-view="news"] .news-mark{width:39px;height:39px;background:#090708}
+.phone-view[data-phone-view="news"] .news-mark img{width:27px;height:27px;margin:auto;object-fit:contain}
+.phone-app-tile.news .phone-app-icon>img{width:35px;height:35px;margin:auto;object-fit:contain}
+.phone-view[data-phone-view="news"] .news-sea-graphic [stop-color="#183e46"]{stop-color:#183e46}.phone-view[data-phone-view="news"] .news-sea-graphic [stop-color="#0a252d"]{stop-color:#0a252d}.phone-view[data-phone-view="news"] .news-sea-graphic [fill="#24515a"]{fill:#24515a}.phone-view[data-phone-view="news"] .news-sea-graphic [stroke="#75aaa9"]{stroke:#75aaa9}.phone-view[data-phone-view="news"] .news-sea-graphic [fill="#e96e57"],.phone-view[data-phone-view="news"] .news-sea-graphic [stroke="#e96e57"]{fill:#e96e57;stroke:#e96e57}.phone-view[data-phone-view="news"] .news-sea-graphic [fill="#d9e6e2"]{fill:#d9e6e2}.phone-view[data-phone-view="news"] .news-sea-graphic [fill="#aac1bc"]{fill:#aac1bc}.phone-view[data-phone-view="news"] .news-sea-graphic [fill="#cce0dc"]{fill:#cce0dc}
