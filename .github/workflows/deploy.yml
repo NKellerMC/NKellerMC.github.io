@@ -1,7 +1,7 @@
 name: Publicar THERAN + Threadly no GitHub Pages
 
 # O Pages principal também publica a versão atual do Threadly em /Threadly/.
-# Atualização do Threadly: arquitetura gratuita Firebase Spark + Supabase com RLS.
+# Atualização do site: feed Threadly em TSX e identidade quente do Riva.
 on:
   push:
     branches: [main]
